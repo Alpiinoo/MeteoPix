@@ -2,6 +2,7 @@ package objects;
 
 import core.*;
 import core.Window;
+import effects.Explosion;
 import render.Renderable;
 import render.Renderer;
 import update.Updateable;
@@ -84,7 +85,12 @@ public class Spaceship implements Renderable, Updateable {
             Updater.RemoveUpdateableObjects(collidingObject);
             Renderer.removeRenderableObject(collidingObject.getRenderable());
 
-            Sound.playSound("res/Explosion.wav");
+            try {
+                Sound.playSound("res/Explosion.wav");
+                new Explosion(x, y);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

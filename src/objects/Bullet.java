@@ -1,5 +1,6 @@
 package objects;
 
+import core.GameData;
 import core.Sound;
 import update.Updateable;
 import update.Updater;
@@ -82,6 +83,8 @@ public class Bullet implements Updateable, Renderable{
             Renderer.removeRenderableObject(collidingObject.getRenderable());
 
             Sound.playSound("res/Bullet_Sound.wav");
+
+            GameData.score++;
         }
     }
 

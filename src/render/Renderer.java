@@ -5,6 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import core.GameData;
 import core.Window;
 
 public class Renderer extends JPanel {
@@ -27,8 +28,13 @@ public class Renderer extends JPanel {
             Collections.sort(renderableObjects);
         }
 
+        g2d.setColor(Color.WHITE);
+        g2d.setFont(new Font("Arial", Font.BOLD, 20));
+        g2d.drawString("Score: " + GameData.score, 20, 30);
+
         addRenderableObjects.clear();
         removeRenderableObjects.clear();
+
     }
 
     public static void addRenderableObject(Renderable object) {
